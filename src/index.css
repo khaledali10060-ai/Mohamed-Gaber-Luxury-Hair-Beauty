@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@100;200;300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", serif;
+  --font-arabic: "Amiri", serif;
+  
+  --color-gold-50: #fdfaf3;
+  --color-gold-100: #fbf5e7;
+  --color-gold-200: #f7e6c2;
+  --color-gold-300: #f3d79d;
+  --color-gold-400: #efc878;
+  --color-gold-500: #ebb953;
+  --color-gold-600: #bc9442;
+  --color-gold-700: #8d6f32;
+  --color-gold-800: #5e4a21;
+  --color-gold-900: #2f2511;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white font-sans antialiased;
+  }
+}
+
+.rtl {
+  direction: rtl;
+  font-family: "Amiri", serif;
+}
+
+.ltr {
+  direction: ltr;
+  font-family: "Inter", sans-serif;
+}
+
+.rtl .font-display {
+  font-family: "Amiri", serif;
+}
+
+.ltr .font-display {
+  font-family: "Playfair Display", serif;
+}
+
+.glass-card {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.mask-fade {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-display: "Playfair Display", serif;
+  
+  --color-gold-400: #d4af37;
+  --color-gold-500: #c5a059;
+  --color-gold-600: #aa8642;
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-[#050505] text-gray-200 font-sans antialiased selection:bg-gold-500 selection:text-black overflow-x-hidden;
+}
+
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a059;
+}
+
+/* Typography refinements */
+h1, h2, h3 {
+  @apply tracking-tight leading-[0.9] font-light;
+}
+
+.letter-spacing-widest {
+  letter-spacing: 0.3em;
+}
+
+.glass-panel {
+  @apply bg-white/5 backdrop-blur-lg border border-white/10;
+}
